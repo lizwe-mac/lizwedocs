@@ -1,10 +1,14 @@
-# Goalsetter MERN app
+# LizweDocs
 
-This is the goalsetter app from the [Learn the MERN Stack](https://www.youtube.com/watch?v=-0exw-9YJBo) series on YouTube.
+A simple invoice and quote generator for small businessess
+
+## Stack
+
+MERN with MaterialUI styling
 
 ## Usage
 
-Rename the .envexample to .env and add your MONGO_URI
+Create .env file and add your MONGO_URI
 
 ### Install dependencies
 
@@ -25,6 +29,4 @@ npm run server
 
 ## Demo
 
-I am not sure how long this will be up
-
-https://mernappbrad.herokuapp.com/
+Still looking for a free hosting service... for now
