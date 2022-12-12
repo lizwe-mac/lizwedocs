@@ -34,31 +34,31 @@ export default function DenseTable() {
       const total = total_arr.reduce((prevVal, currVal) => prevVal + currVal, 0)
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer sx={{}} component={Paper}>
       <Table sx={{ maxWidth: 600 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow >
-            <TableCell sx={{color:'#FF225E'}}>DESCRIPTION</TableCell>
-            <TableCell sx={{color:'#FF225E'}} align="right">QTY</TableCell>
-            <TableCell sx={{color:'#FF225E'}} align="right">UNIT&nbsp;PRICE</TableCell>
-            <TableCell sx={{color:'#FF225E'}} align="right">AMOUNT</TableCell>
+            <TableCell sx={{color:'#FF225E', fontSize:10}}>DESCRIPTION</TableCell>
+            <TableCell sx={{color:'#FF225E', fontSize:10}} align="right">QTY</TableCell>
+            <TableCell sx={{color:'#FF225E', fontSize:10}} align="right">UNIT&nbsp;PRICE</TableCell>
+            <TableCell sx={{color:'#FF225E', fontSize:10}} align="right">AMOUNT</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {rows.map((row, index) => (
             // <TableRow
             //   key={row.description}
             //   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             // >
             <TableRow
-              key={row.description}
+              key={index}
             >
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row" sx={{fontSize:10}}>
                 {row.description}
               </TableCell>
-              <TableCell align="center">{row.qty}</TableCell>
-              <TableCell align="right">{row.unit_price}</TableCell>
-              <TableCell align="right">{row.amount}</TableCell>
+              <TableCell align="center" sx={{fontSize:10}}>{row.qty}</TableCell>
+              <TableCell align="right" sx={{fontSize:10}}>{row.unit_price}</TableCell>
+              <TableCell align="right" sx={{fontSize:10}}>{row.amount}</TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -66,13 +66,13 @@ export default function DenseTable() {
         <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
             <TableCell></TableCell>
             <TableCell></TableCell>
-            <TableCell sx={{color:'#FF225E'}} align='right'>VAT</TableCell>
+            <TableCell sx={{color:'#FF225E', fontSize:10}} align='right'>VAT</TableCell>
             <TableCell align='right'>0</TableCell>
         </TableRow>
         <TableRow>
             <TableCell></TableCell>
             <TableCell></TableCell>
-            <TableCell sx={{color:'#FF225E'}} align='right'>TOTAL</TableCell>
+            <TableCell sx={{color:'#FF225E', fontSize:10}} align='right'>TOTAL</TableCell>
             <TableCell align='right'>{total.toFixed(2)}</TableCell>
         </TableRow>
         </TableFooter>

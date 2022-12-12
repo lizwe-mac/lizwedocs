@@ -12,6 +12,7 @@ import { New } from "./pages/New";
 import { Quote } from "./pages/Quote";
 import Register from "./pages/Register";
 import ToInvoice from "./pages/ToInvoice";
+import { Document } from "./pages/Invoice/Document";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/create_invoice_next" element={<New />} />
             <Route path="/create_invoice_info" element={<DocInfo />} />
             <Route path="/create_invoice/add_items" element={<AddItems />} />
+            <Route path="/invoice/document" element={<Document />} />
           </Routes>
         </div>
       </Router>

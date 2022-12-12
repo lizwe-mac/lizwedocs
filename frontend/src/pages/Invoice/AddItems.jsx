@@ -20,7 +20,6 @@ export const AddItems = () => {
         (state) => state.res
       )
     
-        
 
       let initialState = 
             {
@@ -100,6 +99,14 @@ export const AddItems = () => {
           add
         </Button>
 
+    const doneButton = items ? 
+    <Button sx={{bgcolor:'#FF225E', mt:5}} variant="contained" onClick={()=>navigate('/invoice/document')}>
+    preview
+  </Button> :
+  <Button sx={{mt:5}} variant="contained" disabled >
+  preview
+</Button>
+
       
 
   const res_info = <><Typography sx={{mt:10, p:2, fontSize:12, textAlign:'left'}} variant="h6" color='#FF225E'>
@@ -121,59 +128,15 @@ ADD INVOICE ITEMS</Typography>
 
 </Stack>
 </form></>
-let table 
-if (items){
-    let desc_items = items.map((elem, index) => {
-        return(
-        <Typography sx={{fontSize:10, textAlign:'left'}} variant="h6" color='grey'>
-    {elem.description}</Typography>
-    )})
-    let qty_items = items.map((elem, index) => {
-        return(
-        <Typography sx={{fontSize:10, textAlign:'left'}} variant="h6" color='grey'>
-    {elem.qty}</Typography>
-    )})
-    let unit_items = items.map((elem, index) => {
-        return (
-        <Typography sx={{fontSize:10, textAlign:'left'}} variant="h6" color='grey'>
-    {elem.unit_price}</Typography>
-    )})
-    let amount_items = items.map((elem, index) => {
-        return(
-        <Typography sx={{fontSize:10, textAlign:'left'}} variant="h6" color='grey'>
-    {elem.amount}</Typography>
-    )})
-    let item_no = items.map((elem, index) => {
-        return(
-        <Typography sx={{fontSize:10, textAlign:'left'}} variant="h6" color='#FF225E'>
-    {index + 1}</Typography>
-    )})
-    table = <Stack sx={{display:'flex', flexDirection:'row', alignItems:'center', justifyContent:'space-evenly'}}>
-    <Stack sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
-        {item_no}
-    </Stack>
-    <Stack sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
-        {desc_items}
-    </Stack>
-    <Stack sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
-        {qty_items}
-    </Stack>
-    
-    <Stack sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
-        {unit_items}
-    </Stack>
-    <Stack sx={{display:'flex', flexDirection:'column', alignItems:'right'}}>
-        {amount_items}
-    </Stack>
-    </Stack>
-}
+// 
 
 return (
   <>
   <TopNavigation header={{name:'Create Invoice', account:true, arrow:true }}/>
   {res_info}
   
-    <Table/>
+    <Table />
+    {doneButton}
   </>
 )
 }

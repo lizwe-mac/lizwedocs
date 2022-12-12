@@ -21,7 +21,7 @@ export default function SimpleBottomNavigation({header}) {
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
-        sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
+        sx={{display: 'flex', alignItems: 'center' }}
       >
         {header.arrow && <BottomNavigationAction icon={<ArrowBackIosNewIcon />} />}
         <Typography variant="h5" component="h5">
