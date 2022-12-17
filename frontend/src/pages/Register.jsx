@@ -11,6 +11,8 @@ import LoginIcon from '@mui/icons-material/Login';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import TopNavigation from "../components/TopNavigation"
+import { Typography } from '@mui/material'
+import "@fontsource/kaushan-script"
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -69,14 +71,14 @@ function Register() {
   }
 
   return (
-    <>
-    <TopNavigation header={{name:'Register', account:false, arrow:true }}/>
-      <section className='heading'>
-        <h1>
-          <FaUser /> Sign Up
-        </h1>
-        <p>Create a free account</p>
-      </section>
+    <div style={{maxWidth: 600, margin: 'auto'}}>
+    <Typography sx={{mt:10, mb:2, p:2, fontSize:32, textAlign:'center', fontFamily:'"Kaushan Script"'}} variant="h6" color='#FF225E'>
+      LizweDocs
+    </Typography>
+    <TopNavigation header={{name:'Register', account:false, arrow:false }}/>
+    <Typography sx={{mt:2, mb:2, p:2, fontSize:16, textAlign:'center'}} variant="h6" color='#FF225E'>
+       CREATE FREE ACCOUNT
+    </Typography>
 
       <section className='form'>
         <form onSubmit={onSubmit}>
@@ -165,14 +167,16 @@ function Register() {
                 name='password2'
                 value={password2}
                 onChange={onChange}/>
-                <Button type='submit' variant="contained" size="large" endIcon={<LoginIcon/>}>Sign Up</Button>
+                <Button type='submit' variant="contained" size="large" sx={{bgcolor:'#FF225E'}} endIcon={<LoginIcon/>}>Sign Up</Button>
       
             </Stack>
         </form>
       </section>
-      <p className='para'>Already have an account? <Link to="/login"><span>Login</span></Link></p>
+      <Typography sx={{mt:5, p:2, fontSize:16, textAlign:'center'}} variant="h6" color=''>
+     Already have an account? <Link to="/login"><span><Typography sx={{fontSize:16}} variant="h6" color='#FF225E'>Login</Typography></span></Link>
+    </Typography>
 
-    </>
+    </div>
   )
 }
 

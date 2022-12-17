@@ -65,10 +65,10 @@ export const Invoice = () => {
         
         
             const myButton = buttonEnabled ? 
-            <Button sx={{bgcolor:'#FF225E'}} variant="contained" type='submit'>
+            <Button sx={{bgcolor:'#FF225E', mb:10}} variant="contained" type='submit'>
             next
           </Button> :
-          <Button variant="contained" disabled type='submit'>
+          <Button variant="contained" sx={{mb:10}} disabled type='submit'>
           next
         </Button>
           
@@ -127,7 +127,7 @@ export const Invoice = () => {
         }
     
   return (
-    <>
+    <div style={{maxWidth: 600, margin: 'auto', marginBottom: 50}}>
     <TopNavigation header={{name:'Create Invoice', account:true, arrow:true }}/>
     <Typography sx={{mt:10, p:2, fontSize:16, textAlign:'left'}} variant="h6" color='#FF225E'>
         ENTER ORGANISATION INFORMATION
@@ -160,6 +160,6 @@ export const Invoice = () => {
       
     </Stack>
     </form>
-    </>
+    </div>
   )
 }

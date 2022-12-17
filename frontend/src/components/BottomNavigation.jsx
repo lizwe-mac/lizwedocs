@@ -7,6 +7,9 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Paper from '@mui/material/Paper';
 import HomeIcon from "@mui/icons-material/Home"
+import { pink } from '@mui/material/colors';
+import Add from '@mui/icons-material/Add';
+import NoteAdd from '@mui/icons-material/NoteAdd';
 
 export default function SimpleBottomNavigation() {
   const [value, setValue] = React.useState(0);
@@ -22,9 +25,9 @@ export default function SimpleBottomNavigation() {
           setValue(newValue);
         }}
       >
-        <BottomNavigationAction label="Home" icon={<HomeIcon />} />
-        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+        <BottomNavigationAction label="Home" icon={<HomeIcon sx={{ color: pink[500] }}/>} />
+        <BottomNavigationAction label="Create" icon={<Add />} sx={{ color: pink[500] }}/>
+        <BottomNavigationAction label="Recent" icon={<NoteAdd />} sx={{ color: pink[500] }}/>
         
       </BottomNavigation>
       </Paper>

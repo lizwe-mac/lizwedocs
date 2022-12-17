@@ -34,12 +34,12 @@ export default function DenseTable() {
       const total = total_arr.reduce((prevVal, currVal) => prevVal + currVal, 0)
 
   return (
-    <TableContainer sx={{}} component={Paper}>
+    <TableContainer sx={{margin:'auto', mt:5, maxWidth:550}} component={Paper}>
       <Table sx={{ maxWidth: 600 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow >
             <TableCell sx={{color:'#FF225E', fontSize:10}}>DESCRIPTION</TableCell>
-            <TableCell sx={{color:'#FF225E', fontSize:10}} align="right">QTY</TableCell>
+            <TableCell sx={{color:'#FF225E', fontSize:10}} align="center">QTY</TableCell>
             <TableCell sx={{color:'#FF225E', fontSize:10}} align="right">UNIT&nbsp;PRICE</TableCell>
             <TableCell sx={{color:'#FF225E', fontSize:10}} align="right">AMOUNT</TableCell>
           </TableRow>
@@ -56,7 +56,7 @@ export default function DenseTable() {
               <TableCell component="th" scope="row" sx={{fontSize:10}}>
                 {row.description}
               </TableCell>
-              <TableCell align="center" sx={{fontSize:10}}>{row.qty}</TableCell>
+              <TableCell align="center" sx={{fontSize:10, maxWidth:5}}>{row.qty}</TableCell>
               <TableCell align="right" sx={{fontSize:10}}>{row.unit_price}</TableCell>
               <TableCell align="right" sx={{fontSize:10}}>{row.amount}</TableCell>
             </TableRow>

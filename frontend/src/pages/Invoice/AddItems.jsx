@@ -109,7 +109,7 @@ export const AddItems = () => {
 
       
 
-  const res_info = <><Typography sx={{mt:10, p:2, fontSize:12, textAlign:'left'}} variant="h6" color='#FF225E'>
+  const res_info = <div style={{maxWidth: 400, margin: 'auto'}}><Typography sx={{mt:10, p:2, fontSize:12, textAlign:'left'}} variant="h6" color='#FF225E'>
 ADD INVOICE ITEMS</Typography>
 <form style={{'padding':'0 20px'}} onSubmit={onSubmit}>
 <Stack direction="column" spacing={1}>
@@ -127,16 +127,16 @@ ADD INVOICE ITEMS</Typography>
 {myButton}
 
 </Stack>
-</form></>
+</form></div>
 // 
 
 return (
-  <>
+    <div style={{maxWidth: 600, margin: 'auto'}}>
   <TopNavigation header={{name:'Create Invoice', account:true, arrow:true }}/>
   {res_info}
   
     <Table />
     {doneButton}
-  </>
+  </div>
 )
 }

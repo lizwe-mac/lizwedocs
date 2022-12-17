@@ -22,13 +22,13 @@ export const InvoiceHeader = () => {
    </Typography> */}
     </Stack>
    <Stack>
-   <Typography sx={{fontSize:12, textAlign:'left'}} variant="h6" color='#FF225E'>
+   <Typography sx={{fontSize:16, textAlign:'left'}} variant="h6" color='#FF225E'>
        {info.name}
    </Typography>
-   <Typography sx={{fontSize:10, textAlign:'left'}} variant="h6">
+   <Typography sx={{fontSize:12, textAlign:'left'}} variant="h6">
        {info.address}
    </Typography>
-   <Typography sx={{fontSize:10, textAlign:'left'}} variant="h6">
+   <Typography sx={{fontSize:12, textAlign:'left'}} variant="h6">
        {info.email}, {info.phone}
    </Typography>
    </Stack>
@@ -36,10 +36,10 @@ export const InvoiceHeader = () => {
   
    </Stack>
    <Stack direction='column'>
-   <Typography sx={{fontSize:14, textAlign:'left'}} variant="h6" color='#FF225E'>
+   <Typography sx={{fontSize:16, textAlign:'left'}} variant="h6" color='#FF225E'>
        INVOICE
    </Typography>
-   <Typography sx={{fontSize:10, textAlign:'left'}} variant="h6">
+   <Typography sx={{fontSize:12, textAlign:'left'}} variant="h6">
        10/12/2022
    </Typography>
    </Stack>

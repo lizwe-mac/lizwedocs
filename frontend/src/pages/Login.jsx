@@ -11,6 +11,9 @@ import LoginIcon from '@mui/icons-material/Login';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import TopNavigation from "../components/TopNavigation"
+import { Typography } from '@mui/material'
+import "@fontsource/kaushan-script"
+import { createTheme, ThemeProvider } from '@mui/material';
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -62,14 +65,14 @@ function Login() {
   }
 
   return (
-    <>
-    <TopNavigation header={{name:'Login', account:false, arrow:true }}/>
-      <section className='heading'>
-        <h1>
-          <span><FaUser /></span> <span>Login</span>
-        </h1>
-        <p>Login to your account</p>
-      </section>
+    <div style={{maxWidth: 600, margin: 'auto'}}>
+    <Typography sx={{mt:10, mb:2, p:2, fontSize:32, textAlign:'center', fontFamily:'"Kaushan Script"'}} variant="h6" color='#FF225E'>
+      LizweDocs
+    </Typography>
+    <TopNavigation header={{name:'Login', account:false, arrow:false }}/>
+    <Typography sx={{mt:2, mb:2, p:2, fontSize:16, textAlign:'center'}} variant="h6" color='#FF225E'>
+       LOGIN TO YOUR ACCOUNT
+    </Typography>
 
       <section className='form'>
         <form onSubmit={onSubmit}>
@@ -113,7 +116,7 @@ function Login() {
                 name='password'
                 value={password}
                 onChange={onChange}/>
-                <Button type='submit' variant="contained" size="large" endIcon={<LoginIcon/>}>Login</Button>
+                <Button type='submit' variant="contained" size="large" sx={{bgcolor:'#FF225E'}} endIcon={<LoginIcon/>}>Login</Button>
       
             </Stack>
           {/* <div className='form-group'>
@@ -123,8 +126,10 @@ function Login() {
           </div> */}
         </form>
       </section>
-      <p className='para'>Do not yet have an account? <Link to="/register"><span>Sign up</span></Link></p>
-    </>
+      <Typography sx={{mt:5, p:2, fontSize:16, textAlign:'center'}} variant="h6" color=''>
+      Do not yet have an account? <Link to="/register"><span><Typography sx={{fontSize:16}} variant="h6" color='#FF225E'>Sign up</Typography></span></Link>
+    </Typography>
+    </div>
   )
 }
 

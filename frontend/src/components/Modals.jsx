@@ -6,6 +6,7 @@ import Modal from '@mui/material/Modal';
 import Fab  from '../components/Fab'
 import NoteAddIcon from '@mui/icons-material/NoteAdd';
 import { Link } from 'react-router-dom'
+import { pink } from '@mui/material/colors';
 
 const style = {
   position: 'absolute',
@@ -26,7 +27,7 @@ export default function BasicModal() {
 
   return (
     <>
-      <Box sx={{ position:"fixed", bottom:60, right:20 }}>
+      <Box sx={{ position:"fixed", color: pink[500], bottom:60, right:20 }}>
       <Button onClick={handleOpen}><Fab/></Button>
       <Modal
         open={open}

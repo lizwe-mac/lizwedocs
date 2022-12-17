@@ -14,6 +14,8 @@ import TopNavigation from "../components/TopNavigation"
 import Fab from "../components/Fab"
 import AddModal from "../components/AddModal"
 import Modals from "../components/Modals"
+import { Typography, TextField } from '@mui/material'
+import Combobox from '../components/Combobox'
 
 function Dashboard() { 
   const [open, setOpen] = useState(false);
@@ -51,16 +53,18 @@ function Dashboard() {
   
 
   return (
-    <>
+    <div style={{maxWidth: 600, margin: 'auto'}}>
     <TopNavigation header={{name:'Dashboard', account:true, arrow:true }}/>
-      <section className='heading'>
-        <h1>Welcome {user && user.name}</h1>
-        <p>Goals Dashboard</p>
-      </section>
+      
 
-      <GoalForm />
+      {/* <GoalForm /> */}
+      <Combobox/>
 
-      <section className='content'>
+      <Typography sx={{fontSize:14, textAlign:'left'}} variant="h6" color='#FF225E' mt={5} ml={2}>
+        Recent Documents
+      </Typography>
+
+      {/* <section className='content'>
         {goals.length > 0 ? (
           <div className='goals'>
             {goals.map((goal) => (
@@ -70,17 +74,16 @@ function Dashboard() {
         ) : (
           <h3>You have not set any goals</h3>
         )}
-      </section>
+      </section> */}
       <Stack sx={{ justifyContent: 'center' }} spacing={2} direction="row">
-      <Link to="/"><Button variant="contained" size="medium" endIcon={<HomeIcon/>}>Home</Button></Link>
-      <Button variant="contained" size="medium" endIcon={<LogoutIcon/>}>Log Out</Button>
+      
 
       </Stack>
       <SimpleBottomNavigation />
       {/* <Fab onClick={handleOpen}/> */}
       {/* {open && <AddModal close={handleClose} />} */}
       <Modals />
-    </>
+    </div>
   )
 }
 

@@ -12,7 +12,7 @@ export default function SimpleBottomNavigation({header}) {
   const [value, setValue] = React.useState(0);
 
   return (
-    <Box sx={{ width: 500 }}>
+    <Box sx={{}}>
     <Paper sx={{ position: 'fixed', top: 0, left: 0, right: 0, }}>
 
       <BottomNavigation
@@ -21,7 +21,7 @@ export default function SimpleBottomNavigation({header}) {
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
-        sx={{display: 'flex', alignItems: 'center' }}
+        sx={{display: 'flex', alignItems: 'center', justifyContent:'space-around' }}
       >
         {header.arrow && <BottomNavigationAction icon={<ArrowBackIosNewIcon />} />}
         <Typography variant="h5" component="h5">

@@ -137,10 +137,10 @@ export const New = () => {
 </form></>
   
 return (
-  <>
+    <div style={{maxWidth: 600, margin: 'auto'}}>
   <TopNavigation header={{name:'Create Invoice', account:true, arrow:true }}/>
   {res_info}
   
-  </>
+  </div>
 )
 }

@@ -22,8 +22,8 @@ export const DocInfo = () => {
         (state) => state.res
       )
 
-      const user_info = <><Typography sx={{mt:10, p:2, fontSize:16, textAlign:'left'}} variant="h6" color=''>
-      1. YOUR INFORMATION
+      const user_info = <><Typography sx={{mt:10, p:2, fontSize:16, textAlign:'center'}} variant="h6" color=''>
+      YOUR INFORMATION
   </Typography>
  <Stack sx={{pl:6, pr:5, pb:2}} direction="row" spacing={5} >
  <Stack direction="column" spacing={1}>
@@ -69,8 +69,8 @@ export const DocInfo = () => {
   edit
 </Button>
   <hr /></>
-  let res_info = <><Typography sx={{mt:2, p:2, fontSize:14, textAlign:'left'}} variant="h6" color='#FF225E'>
-  1. RECEPIENT INFORMATION
+  let res_info = <><Typography sx={{mt:2, p:2, fontSize:14, textAlign:'center'}} variant="h6" color=''>
+  RECEPIENT INFORMATION
   </Typography>
   <Stack sx={{pl:6, pr:5, pb:2}} direction="row" spacing={5} >
   <Stack direction="column" spacing={1}>
@@ -110,10 +110,10 @@ const saveInfo = () => {
 }
 
   return (
-    <>
+    <div style={{maxWidth: 600, margin: 'auto'}}>
         <TopNavigation header={{name:'Create Invoice', account:true, arrow:true }}/>
         {user_info}
         {res_info}
-    </>
+    </div>
   )
 }
