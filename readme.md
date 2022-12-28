@@ -89,10 +89,11 @@ cd frontend
 npm install
 ```
 
-### Run Server
+### Run Server & Client
 
 ```
-npm run server
+# Use concurrently - npm module
+npm run dev
 ```
 
 ## Demo
