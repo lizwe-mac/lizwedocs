@@ -10,6 +10,7 @@ MERN, MaterialUI, JWT, Figma
 - [ ] Top and Botton Nav
 - [ ] Add Privacy Policy
 - [x] reCaptcha on login & signup
+- [ ] Load Screen
 - [ ] User Profile
 - [ ] Documentation
 - [ ] How-to instruction video
@@ -96,4 +97,4 @@ npm run server
 
 ## Demo
 
-https://lizwedocs.up.railway.app
+https://lizwedocs.up.railway.app (May not up due to lack of resources 😟)
