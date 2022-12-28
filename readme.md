@@ -96,4 +96,4 @@ npm run server
 
 ## Demo
 
-Still looking for a free hosting service... for now
+https://lizwedocs.up.railway.app
