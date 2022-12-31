@@ -37,14 +37,14 @@ export default function BasicModal() {
       >
         <Box sx={style}>
           <Link to='/create-invoice'>
-          <Typography  sx={{pb: 2, display:'flex', alignItems:'center', gap:2}} id="modal-modal-title" variant="h5" component="h2">
-           <NoteAddIcon sx={{color:'#FF225E'}} fontSize='large'/> Create Invoice
+          <Typography  sx={{pb: 2, display:'flex', alignItems:'center', gap:2}} id="modal-modal-title" variant="h5" component="h5" fontSize='large'>
+           <NoteAddIcon sx={{color:'#FF225E'}} fontSize='small'/> Create Invoice
           </Typography>
           </Link>
           <hr />
           <Link to='/create-quote'>
-          <Typography sx={{pt: 2, display:'flex', alignItems:'center', gap:2}} id="modal-modal-title" variant="h5" component="h2">
-          <NoteAddIcon sx={{color:'#FF225E'}} fontSize='large'/> Create Quote
+          <Typography sx={{pt: 2, display:'flex', alignItems:'center', gap:2}} id="modal-modal-title" variant="h5" component="h2" fontSize='large'>
+          <NoteAddIcon sx={{color:'#FF225E'}} fontSize='small'/> Create Quote
           </Typography>
           </Link>
           

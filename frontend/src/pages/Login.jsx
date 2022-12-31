@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { FaSignInAlt, FaUser } from 'react-icons/fa'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -14,6 +14,7 @@ import TopNavigation from "../components/TopNavigation"
 import { Typography } from '@mui/material'
 import "@fontsource/kaushan-script"
 import { createTheme, ThemeProvider } from '@mui/material';
+import Reaptcha from 'reaptcha';
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -29,6 +30,16 @@ function Login() {
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   )
+
+  const [captchaToken, setCaptchaToken] = useState(null);
+  const captchaRef = useRef(null);
+  
+  const verify = () =>{
+    captchaRef.current.getResponse().then(res => {
+        setCaptchaToken(res)
+    })
+  
+  }
 
   useEffect(() => {
     if (isError) {
@@ -51,7 +62,10 @@ function Login() {
 
   const onSubmit = (e) => {
     e.preventDefault()
-
+    if(!captchaToken){
+      toast.error('Are you a robot? 🤖')
+      return
+    }
     const userData = {
       email,
       password,
@@ -107,7 +121,8 @@ function Login() {
                  placeholder='example@email.com'
                  name='email'
                  value={email}
-                 onChange={onChange}/>
+                 onChange={onChange}
+                 required/>
                 <TextField 
                 id="outlined-basic" 
                 label="Password" 
@@ -115,7 +130,13 @@ function Login() {
                 type='password'
                 name='password'
                 value={password}
-                onChange={onChange}/>
+                onChange={onChange}
+                required/>
+                <Reaptcha 
+                sitekey={process.env.REACT_APP_SITE_KEY}
+                ref={captchaRef}
+                onVerify={verify} 
+                />
                 <Button type='submit' variant="contained" size="large" sx={{bgcolor:'#FF225E'}} endIcon={<LoginIcon/>}>Login</Button>
       
             </Stack>
@@ -127,7 +148,7 @@ function Login() {
         </form>
       </section>
       <Typography sx={{mt:5, p:2, fontSize:16, textAlign:'center'}} variant="h6" color=''>
-      Do not yet have an account? <Link to="/register"><span><Typography sx={{fontSize:16}} variant="h6" color='#FF225E'>Sign up</Typography></span></Link>
+      Do not yet have an account? <Link to="/register"><span><Typography sx={{fontSize:16}} variant="h6" color='#FF225E'>SIGN UP</Typography></span></Link>
     </Typography>
     </div>
   )

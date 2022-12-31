@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -12,7 +12,10 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import TopNavigation from "../components/TopNavigation"
 import { Typography } from '@mui/material'
+import Checkbox from '../components/Checkbox'
 import "@fontsource/kaushan-script"
+import Reaptcha from 'reaptcha';
+import reCAPTCHA from "react-google-recaptcha"
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -22,6 +25,8 @@ function Register() {
     password2: '',
   })
 
+  const key = process.env.REACT_APP_SITE_KEY
+
   const { name, email, password, password2 } = formData
 
   const navigate = useNavigate()
@@ -30,6 +35,16 @@ function Register() {
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   )
+
+  const [captchaToken, setCaptchaToken] = useState(null);
+const captchaRef = useRef(null);
+
+const verify = () =>{
+  captchaRef.current.getResponse().then(res => {
+      setCaptchaToken(res)
+  })
+
+}
 
   useEffect(() => {
     if (isError) {
@@ -53,6 +68,11 @@ function Register() {
   const onSubmit = (e) => {
     e.preventDefault()
 
+    if(!captchaToken){
+      toast.error('Are you perhaps a robot? 🤖')
+      return
+    }
+
     if (password !== password2) {
       toast.error('Passwords do not match')
     } else {
@@ -70,6 +90,7 @@ function Register() {
     return <Spinner />
   }
 
+
   return (
     <div style={{maxWidth: 600, margin: 'auto'}}>
     <Typography sx={{mt:10, mb:2, p:2, fontSize:32, textAlign:'center', fontFamily:'"Kaushan Script"'}} variant="h6" color='#FF225E'>
@@ -82,55 +103,7 @@ function Register() {
 
       <section className='form'>
         <form onSubmit={onSubmit}>
-          {/* <div className='form-group'>
-            <input
-              type='text'
-              className='form-control'
-              id='name'
-              name='name'
-              value={name}
-              placeholder='Enter your name'
-              onChange={onChange}
-            />
-          </div>
-          <div className='form-group'>
-            <input
-              type='email'
-              className='form-control'
-              id='email'
-              name='email'
-              value={email}
-              placeholder='Enter your email'
-              onChange={onChange}
-            />
-          </div>
-          <div className='form-group'>
-            <input
-              type='password'
-              className='form-control'
-              id='password'
-              name='password'
-              value={password}
-              placeholder='Enter password'
-              onChange={onChange}
-            />
-          </div>
-          <div className='form-group'>
-            <input
-              type='password'
-              className='form-control'
-              id='password2'
-              name='password2'
-              value={password2}
-              placeholder='Confirm password'
-              onChange={onChange}
-            />
-          </div>
-          <div className='form-group'>
-            <button type='submit' className='btn btn-block'>
-              Submit
-            </button>
-          </div> */}
+          
           <Stack spacing={2} direction="column">
                 <TextField
                  id="outlined-basic" 
@@ -140,7 +113,8 @@ function Register() {
                  placeholder='Jane Doe'
                  name='name'
                  value={name}
-                 onChange={onChange}/>
+                 onChange={onChange}
+                 required/>
                 <TextField
                  id="outlined-basic" 
                  label="Email" 
@@ -158,7 +132,8 @@ function Register() {
                 type='password'
                 name='password'
                 value={password}
-                onChange={onChange}/>
+                onChange={onChange}
+                required/>
                 <TextField 
                 id="outlined-basic" 
                 label="Re-enter Password" 
@@ -166,14 +141,22 @@ function Register() {
                 type='password'
                 name='password2'
                 value={password2}
-                onChange={onChange}/>
+                onChange={onChange}
+                required/>
+                <Checkbox required/>
+                <Reaptcha 
+                sitekey={process.env.REACT_APP_SITE_KEY}
+                ref={captchaRef}
+                onVerify={verify} 
+                />
+                {/* <reCAPTCHA sitekey={process.env.REACT_APP_SITE_KEY}/> */}
                 <Button type='submit' variant="contained" size="large" sx={{bgcolor:'#FF225E'}} endIcon={<LoginIcon/>}>Sign Up</Button>
-      
+                
             </Stack>
         </form>
       </section>
       <Typography sx={{mt:5, p:2, fontSize:16, textAlign:'center'}} variant="h6" color=''>
-     Already have an account? <Link to="/login"><span><Typography sx={{fontSize:16}} variant="h6" color='#FF225E'>Login</Typography></span></Link>
+     Already have an account? <Link to="/login"><span><Typography sx={{fontSize:16}} variant="h6" color='#FF225E'>LOGIN</Typography></span></Link>
     </Typography>
 
     </div>
