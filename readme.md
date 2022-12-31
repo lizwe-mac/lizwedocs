@@ -8,7 +8,7 @@ MERN, MaterialUI, JWT, Figma
 
 ## TODOs
 - [ ] Top and Botton Nav
-- [ ] Add Privacy Policy
+- [x] Add Privacy Policy??
 - [x] reCaptcha on login & signup
 - [ ] Load Screen
 - [ ] User Profile
