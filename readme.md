@@ -27,7 +27,7 @@ MERN, MaterialUI, JWT, Figma
 
 ### 2. Clone the repo
 ```
-https://github.com/lizwe-mac/lizwedocs.git
+https://github.com/<your-github-username>/lizwedocs.git
 
 ```
 
