@@ -8,7 +8,7 @@ MERN, MaterialUI, JWT, Figma
 
 ## TODOs
 - [ ] Top and Botton Nav
-- [x] Add Privacy Policy??
+- [x] Add Privacy Policy?
 - [x] reCaptcha on login & signup
 - [ ] Load Screen
 - [ ] User Profile
@@ -27,7 +27,7 @@ MERN, MaterialUI, JWT, Figma
 
 ### 2. Clone the repo
 ```
-https://github.com/<your-github-username>/lizwedocs.git
+https://github.com/lizwe-mac/lizwedocs.git
 
 ```
 

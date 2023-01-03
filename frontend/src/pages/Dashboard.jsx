@@ -16,9 +16,13 @@ import AddModal from "../components/AddModal"
 import Modals from "../components/Modals"
 import { Typography, TextField } from '@mui/material'
 import Combobox from '../components/Combobox'
+import { pink, grey } from '@mui/material/colors';
+import { NoteAdd } from '@mui/icons-material'
+import { Dialog, DialogActions, DialogContent, DialogTitle, DialogContentText, Avatar, Menu, MenuItem, ListItemIcon, Divider, IconButton, Tooltip,  } from '@mui/material'
 
 function Dashboard() { 
   const [open, setOpen] = useState(false);
+  const [openDialog, setDialogOpen] = useState(true);
   const handleOpen = () => console.log(open);
   // const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -29,6 +33,18 @@ function Dashboard() {
   const { goals, isLoading, isError, message } = useSelector(
     (state) => state.goals
   )
+
+  // const handleClickOpen = () => {
+  //   setOpen(true);
+  // };
+
+  const handleCancel = () => {
+    setDialogOpen(false);
+  };
+
+const handleContinue = async () => {
+  setDialogOpen(false)
+}
 
   useEffect(() => {
     if (isError) {
@@ -83,6 +99,34 @@ function Dashboard() {
       {/* <Fab onClick={handleOpen}/> */}
       {/* {open && <AddModal close={handleClose} />} */}
       <Modals />
+      <Dialog
+        open={openDialog}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Let's get started!"}
+        </DialogTitle>
+        <DialogContent>
+          {/* <DialogContentText id="alert-dialog-description">
+            Logging out will delete all locally stored data. 
+          </DialogContentText> */}
+          <Stack >
+          <Link to='/create-invoice'>
+          <Button sx={{color:pink[500]}} onClick={handleCancel} startIcon={<NoteAdd sx={{color:'#FF225E'}} fontSize='small'/>}>Create Invoice</Button>
+          </Link>
+          <Button sx={{color:grey[500]}} onClick={handleCancel} startIcon={<NoteAdd sx={{color:grey[500]}} fontSize='small'/>} disabled>Create Invoice</Button>
+          
+          </Stack>
+        </DialogContent>
+        <DialogActions>
+          <Button sx={{color:pink[500]}} onClick={handleCancel}>Cancel</Button>
+          {/* <Button sx={{color:pink[500]}} onClick={handleContinue}>
+            Continue
+          </Button> */}
+        </DialogActions>
+      </Dialog>
     </div>
   )
 }
