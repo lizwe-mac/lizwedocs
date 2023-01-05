@@ -93,10 +93,10 @@ const verify = () =>{
 
   return (
     <div style={{maxWidth: 600, margin: 'auto'}}>
-    <Typography sx={{mt:10, mb:2, p:2, fontSize:32, textAlign:'center', fontFamily:'"Kaushan Script"'}} variant="h6" color='#FF225E'>
+    <Typography sx={{mt:2, mb:2, p:2, fontSize:32, textAlign:'center', fontFamily:'"Kaushan Script"'}} variant="h6" color='#FF225E'>
       LizweDocs
     </Typography>
-    <TopNavigation header={{name:'Register', account:false, arrow:false }}/>
+    {/* <TopNavigation header={{name:'', account:false, arrow:false }}/> */}
     <Typography sx={{mt:2, mb:2, p:2, fontSize:16, textAlign:'center'}} variant="h6" color='#FF225E'>
        CREATE FREE ACCOUNT
     </Typography>

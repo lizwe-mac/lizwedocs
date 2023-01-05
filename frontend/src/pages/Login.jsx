@@ -15,6 +15,10 @@ import { Typography } from '@mui/material'
 import "@fontsource/kaushan-script"
 import { createTheme, ThemeProvider } from '@mui/material';
 import Reaptcha from 'reaptcha';
+import { pink, grey, blue } from '@mui/material/colors';
+import { GitHub, Twitter } from '@mui/icons-material'
+import { Dialog, DialogActions, DialogContent, DialogTitle, DialogContentText, Avatar, Menu, MenuItem, ListItemIcon, Divider, IconButton, Tooltip,  } from '@mui/material'
+
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -33,6 +37,8 @@ function Login() {
 
   const [captchaToken, setCaptchaToken] = useState(null);
   const captchaRef = useRef(null);
+
+  const [openDialog, setDialogOpen] = useState(true);
   
   const verify = () =>{
     captchaRef.current.getResponse().then(res => {
@@ -78,12 +84,18 @@ function Login() {
     return <Spinner />
   }
 
+  const handleCancel = () => {
+    setDialogOpen(false);
+  };
+
+// const handleClose = () => setOpen(false);
+
   return (
     <div style={{maxWidth: 600, margin: 'auto'}}>
-    <Typography sx={{mt:10, mb:2, p:2, fontSize:32, textAlign:'center', fontFamily:'"Kaushan Script"'}} variant="h6" color='#FF225E'>
+    <Typography sx={{mt:2, mb:2, p:2, fontSize:32, textAlign:'center', fontFamily:'"Kaushan Script"'}} variant="h6" color='#FF225E'>
       LizweDocs
     </Typography>
-    <TopNavigation header={{name:'Login', account:false, arrow:false }}/>
+    {/* <TopNavigation header={{name:'', account:false, arrow:false }}/> */}
     <Typography sx={{mt:2, mb:2, p:2, fontSize:16, textAlign:'center'}} variant="h6" color='#FF225E'>
        LOGIN TO YOUR ACCOUNT
     </Typography>
@@ -150,6 +162,44 @@ function Login() {
       <Typography sx={{mt:5, p:2, fontSize:16, textAlign:'center'}} variant="h6" color=''>
       Do not yet have an account? <Link to="/register"><span><Typography sx={{fontSize:16}} variant="h6" color='#FF225E'>SIGN UP</Typography></span></Link>
     </Typography>
+    <Dialog
+        open={openDialog}
+        // onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Just a heads up!"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            The app is still in development and some features may not be working as intended. It's basically a little open source app that I hope to build and flesh out over time...  
+          </DialogContentText>
+          <Divider sx={{mt:1, mb:1}} />
+          <Stack >
+          <Typography sx={{mt:1}}>
+          If you would like to help, please check out the project on Github:
+          </Typography>
+          <a href='https://github.com/lizwe-mac/lizwedocs' target='_blank' rel='noreferrer'>
+          <Button sx={{color:grey[800], border:1, mt:1, mb:1}} onClick={handleCancel} startIcon={<GitHub fontSize='medium'/>}>Github</Button>
+          </a>
+          </Stack>
+          <Stack >
+          <Typography sx={{mt:0.5}}>
+            Or reach me on Twitter:
+          </Typography>
+          <a href='https://twitter.com/dingiilizwe' target='_blank' rel='noreferrer'>
+          <Button sx={{color:blue[500], border:1, mt:1, mb:1}} onClick={handleCancel} startIcon={<Twitter fontSize='small'/>}>Twitter</Button>
+          </a>
+          </Stack>
+        </DialogContent>
+        <DialogActions>
+          <Button sx={{color:pink[500]}} onClick={handleCancel}>Alright 🙂</Button>
+          {/* <Button sx={{color:pink[500]}} onClick={handleContinue}>
+            Continue
+          </Button> */}
+        </DialogActions>
+      </Dialog>
     </div>
   )
 }
