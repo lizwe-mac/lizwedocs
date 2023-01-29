@@ -7,10 +7,10 @@ A simple invoice and quote generator for small businessess
 MERN, MaterialUI, JWT, Figma
 
 ## TODOs
-- [ ] Top and Botton Nav
+- [x] Top and Botton Nav
 - [x] Add Privacy Policy?
 - [x] reCaptcha on login & signup
-- [ ] Load Screen
+- [x] Load Screen
 - [ ] User Profile
 - [ ] Documentation
 - [ ] How-to instruction video
